@@ -1,7 +1,7 @@
 <style>
 
-.header_one {
-    border: solid 1px red;
+body {
+    font-size: 20px;
 }
 
 
