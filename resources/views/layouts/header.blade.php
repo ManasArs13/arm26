@@ -13,7 +13,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Главная</a>
+            <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">Главная</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Создать услугу</a>
