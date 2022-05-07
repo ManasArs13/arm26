@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row justify-content-center align-items-center border border-primary">
+    <div class="row justify-content-center align-items-center" id="banner_row">
 
         <div class="col-4">
             <form class="d-flex">
@@ -9,7 +9,7 @@
         </div>
 
         <div class="col-6">
-            <h1>Сайт для поиска услуг в Ставрополе</h1>
+            <h1 class="text-end" id="banner_h1">Сайт для поиска услуг в Ставрополе</h1>
 
         </div>
 
