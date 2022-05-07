@@ -16,7 +16,9 @@ body {
     font-weight: 900;
 }
 
-
+.footer {
+    background-color: #000000;
+}
 
 
 

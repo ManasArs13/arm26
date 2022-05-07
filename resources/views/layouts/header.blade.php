@@ -23,7 +23,7 @@
           </li>
         </ul>
         
-        <button class="btn btn-outline-danger" type="submit">ВХОД/РЕГИСТРАЦИЯ</button>
+        <button class="btn btn-danger" type="submit">ВХОД/РЕГИСТРАЦИЯ</button>
         
       </div>
     
