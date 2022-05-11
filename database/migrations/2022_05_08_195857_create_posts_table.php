@@ -23,7 +23,7 @@ class CreatePostsTable extends Migration
             $table->string('phone_number');
             $table->bigInteger('price');
             $table->string('currency');
-            $table->boolean('visibility');
+            $table->boolean('visibility')->default(true);
 
             
 

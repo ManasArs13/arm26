@@ -11,9 +11,14 @@
 |
 */
 
+use App\Http\Controllers\PostController;
+
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/admin', 'PostController@index');
+
 
 Auth::routes();
 
