@@ -40,10 +40,13 @@
             <ul class="navbar-nav mx-auto">
               
               <li class="nav-item">
-                <a class="nav-link" href="#">Создать услугу</a>
+                <a class="nav-link" href="#">Добавить пост</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Найти специалиста</a>
+                <a class="nav-link" href="#">Добавить категорию</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Добавить пользователя</a>
               </li>
             </ul>
             
@@ -68,7 +71,7 @@
            <div class="col-3 border border-primary">
               @include('admin.navi')
            </div>
-           <div class="col-9 border border-primary">
+           <div class="col-9">
 
             @yield('content')
 

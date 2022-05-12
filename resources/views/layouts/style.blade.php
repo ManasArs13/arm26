@@ -21,7 +21,9 @@ body {
 }
 
 
-
+.card {
+    margin: 10px;
+}
 
 
 

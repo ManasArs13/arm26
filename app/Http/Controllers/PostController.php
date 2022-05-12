@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Post;
+use App\Category;
+
 
 class PostController extends Controller
 {
@@ -14,10 +17,14 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')->get();
-		dump($posts);
         
+        $posts = Post::find(1);
+        dump($posts);
         
+        $category = Category::find(4);
+        dump($category);
+
+
         return view('admin.post', ['posts' => $posts]);
     }
 
