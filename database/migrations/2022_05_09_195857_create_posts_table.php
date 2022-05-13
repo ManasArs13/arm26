@@ -18,16 +18,19 @@ class CreatePostsTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('description');
-            $table->bigInteger('category_id');
-            $table->bigInteger('user_id');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('phone_number');
             $table->bigInteger('price');
-            $table->string('currency');
-            $table->boolean('visibility')->default(true);
+            $table->boolean('visibility')->default(1);
 
             
 
         });
+
+
     }
 
     /**

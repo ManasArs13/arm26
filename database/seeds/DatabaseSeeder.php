@@ -18,8 +18,7 @@ class DatabaseSeeder extends Seeder
                 'category_id'=>'1',
                 'user_id'=>'1',
                 'phone_number'=>'89397524410',
-                'currency'=>'р'
-            ]);
+                ]);
         
         DB::table('categories')->insert([
                 'title' => 'IT',
