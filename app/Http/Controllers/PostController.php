@@ -18,11 +18,10 @@ class PostController extends Controller
     public function index()
     {
         
-        $posts = Post::find(1);
-        dump($posts);
+        $posts = Post::all();
+       dump($posts);
         
-        $category = Category::find(4);
-        dump($category);
+
 
 
         return view('admin.post', ['posts' => $posts]);

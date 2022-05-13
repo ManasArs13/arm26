@@ -9,7 +9,11 @@ use App\User;
 class Post extends Model
 {
    public function Category () {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function User () {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     //
