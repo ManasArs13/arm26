@@ -12,18 +12,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('categories')->insert([
+            'title' => 'IT',
+            'img'=>'',
+            'sort_id'=>'1',
+       ]);
+
+
         DB::table('posts')->insert([
                 'name' => 'Создание веб-сайтов',
                 'description'=>'Выполение работ любой сложности (лендинги, карпоративные сайты или интернет магазины). Цены зависят от сложности - от 15 т.р. до 100 т.р.',
                 'category_id'=>'1',
                 'user_id'=>'1',
                 'phone_number'=>'89397524410',
+                'price'=>'15000',
                 ]);
         
-        DB::table('categories')->insert([
-                'title' => 'IT',
-                 'img'=>'',
-                'sort_id'=>'1',
-           ]);
+
     }
 }
