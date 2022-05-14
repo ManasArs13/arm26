@@ -2,7 +2,6 @@
 
 @section('content')
 
-@foreach ($users as $user)
 
 
 
@@ -18,22 +17,17 @@
     </ul>
     </div>
     <div class="card-body">
-      <h5 class="card-title">Имя: {{ $user -> name }}</h5>
-      <p class="card-text"> Email: {{ $user -> email }} </p>
-      <p class="card-text">Зарегистрирован: {{ $user -> created_at }}</p>
+      <h5 class="card-title">d</h5>
+      <p class="card-text">d</p>
+      <p class="card-text">Автор: d</p>
             <div class="hstack gap-3">
-                 <div class="">Постов: ???</div>
+                 <div class="">Категория: d</div>
+                 <div class="ms-auto">d р.</div>
             </div>
       </div>
   </div>
 
 
-
-
-
-
-
-@endforeach
 
 
 
