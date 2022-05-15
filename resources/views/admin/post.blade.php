@@ -1,4 +1,4 @@
-@extends('admin.index')
+@extends('admin.home')
 
 @section('content')
 @foreach ($posts as $post)
