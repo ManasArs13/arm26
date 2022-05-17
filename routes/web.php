@@ -17,10 +17,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/admin', 'PostController@index')->name('admin.post.index');
-Route::get('/admin/create', 'PostController@create')->name('admin.post.create');
+/*Route::get('/admin', 'PostController@index')->name('admin.post.index');
+Route::get('/admin/create', 'PostController@create')->name('admin.post.create');*/
 
-
+Route::resource('admin/posts', 'PostController');
 
 
 Route::get('/admin/category', 'CategoryController@index')->name('admin.category.index');

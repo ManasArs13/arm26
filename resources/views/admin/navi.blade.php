@@ -1,11 +1,11 @@
 <ul class="nav flex-column">
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="{{ route('admin.post.index') }}">Посты</a>
+      <a class="nav-link active" aria-current="page" href="{{ route('posts.index') }}">Посты</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('admin.category.index') }}">Категории</a>
+      <a class="nav-link" href="#">Категории</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('admin.user.index') }}">Пользователи</a>
+      <a class="nav-link" href="#">Пользователи</a>
     </li>
   </ul>

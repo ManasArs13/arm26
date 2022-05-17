@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
+use App\User;
 
 
 
@@ -16,14 +18,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        
         $posts = Post::all();
-       dump($posts);
-        
-
-
-
-        return view('admin.post', ['posts' => $posts]);
+          dump($posts);
+        return view('admin.posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -33,7 +30,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.createpost', []);
+        $users = User::all();
+        $categories = Category::all();
+        
+        return view('admin.posts.create', ['users' => $users, 'categories' => $categories]);
     }
 
     /**
@@ -44,7 +44,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        
+
+        $post = new Post();
+        $post->name = $request->input('name');
+        $post->description = $request->input('description');
+        $post->category_id = $request->input('category_id');
+        $post->user_id = $request->input('user_id');
+        $post->phone_number = $request->input('phone_number');
+        $post->price = $request->input('price');
+        $post->save();
+
+        return redirect()->route('posts.index');
     }
 
     /**
