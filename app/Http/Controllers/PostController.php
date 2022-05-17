@@ -18,7 +18,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::where('visibility', 1)
+        ->latest()
+        ->get();
           dump($posts);
         return view('admin.posts.index', ['posts' => $posts]);
     }
@@ -44,9 +46,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-
-        
-
+dump($request);
         $post = new Post();
         $post->name = $request->input('name');
         $post->description = $request->input('description');
@@ -56,8 +56,8 @@ class PostController extends Controller
         $post->price = $request->input('price');
         $post->save();
 
-        return redirect()->route('posts.index');
-    }
+        return redirect()->route('posts.index')->with('status', 'Новый пост успешно создан');
+     }
 
     /**
      * Display the specified resource.
@@ -78,7 +78,11 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::where('id', $id)->first();
+        $users = User::all();
+        $categories = Category::all();
+
+        return view('admin.posts.edit', ['post'=>$post, 'users'=>$users, 'categories'=>$categories]);
     }
 
     /**
@@ -90,7 +94,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -101,6 +105,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        
+        $post->delete();
+        return redirect()->route('posts.index')->with('status', 'Пост удалён');
     }
 }

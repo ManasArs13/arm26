@@ -1,31 +1,43 @@
 @extends('admin.home')
 
 @section('content')
+
+@if (session('status'))
+<div class="alert alert-success alert-dismissible mt-4" role="alert">
+   {{ session('status') }}
+</div>
+@endif
+
+
+
 @foreach ($posts as $post)
 
 
 
-<div class="card text-left">
+<div class="card text-centr">
     <div class="card-header">
-    <ul class="nav nav-pills card-header-pills">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">редактировать</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">удалить</a>
-        </li>
-    </ul>
+      <form action="{{ route('posts.destroy', ['id' => $post->id]) }}" method="post">
+        <a href="{{ route('posts.create')}}" class="btn btn-outline-primary" aria-current="page">Добавить пост</a>
+        <a href="{{ route('posts.edit', ['id' => $post->id])}}" class="btn btn-outline-primary" aria-current="page">Редактировать</a>
+      @csrf
+      @method('DELETE')
+        <input type="submit" class="btn btn-danger" value="Удалить">
+      </form>
+     
     </div>
+  
+    
     <div class="card-body">
       <h5 class="card-title">{{ $post -> name }}</h5>
       <p class="card-text">{{ $post -> description }}</p>
       <p class="card-text">Автор: {{ $post -> user -> name}} ({{ $post -> phone_number}})</p>
             
       <div class="hstack gap-3">
-                 <div class="">Категория: {{ $post -> category ->title }}</div>
-                 <div class="ms-auto">{{ $post -> price }} р.</div>
-            </div>
+        <div class="">Категория: {{ $post -> category ->title }}</div>
+        <div class="ms-auto">{{ $post -> price }} р.</div>
       </div>
+    </div>
+     
   </div>
 
 

@@ -17,8 +17,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-/*Route::get('/admin', 'PostController@index')->name('admin.post.index');
-Route::get('/admin/create', 'PostController@create')->name('admin.post.create');*/
+Route::redirect('/admin', '/admin/posts', 301);
 
 Route::resource('admin/posts', 'PostController');
 
