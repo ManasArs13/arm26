@@ -94,7 +94,18 @@ dump($request);
      */
     public function update(Request $request, $id)
     {
-        
+        dump($id);
+
+        $post = Post::findOrFail($id);
+        $post->name = $request->input('name');
+        $post->description = $request->input('description');
+        $post->category_id = $request->input('category_id');
+        $post->user_id = $request->input('user_id');
+        $post->phone_number = $request->input('phone_number');
+        $post->price = $request->input('price');
+        $post->update();
+
+        return redirect()->route('posts.index')->with('status', 'Пост обнавлён');
     }
 
     /**

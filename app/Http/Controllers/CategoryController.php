@@ -17,7 +17,7 @@ class CategoryController extends Controller
         $categories = Category::all();
         dump($categories);
         
-        return view('admin.category', ['categories' => $categories]);
+        return view('admin.categories.index', ['categories' => $categories]);
 
     }
 
@@ -28,7 +28,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -39,7 +39,20 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+        $category->title = $request->input('title');
+        $category->sort_id = $request->input('sort_id');
+        $category->img = $request->file('img');
+
+        $img = $request->file('img');
+        if ($img) {
+            $path = Storage::putFile('public', $img);
+            $category->img = Storage::url($path);
+        }
+       
+        $category->save();
+
+        return redirect()->route('categories.index')->with('status', 'Новая категория добавлена');
     }
 
     /**
@@ -84,6 +97,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        
+        $category->delete();
+        return redirect()->route('categories.index')->with('status', 'категория удалена');
     }
 }

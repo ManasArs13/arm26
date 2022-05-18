@@ -20,10 +20,9 @@ Route::get('/', function () {
 Route::redirect('/admin', '/admin/posts', 301);
 
 Route::resource('admin/posts', 'PostController');
+Route::resource('admin/categories', 'CategoryController');
+Route::resource('admin/users', 'UserController');
 
-
-Route::get('/admin/category', 'CategoryController@index')->name('admin.category.index');
-Route::get('/admin/user', 'UserController@index')->name('admin.user.index');
 
 Auth::routes();
 
