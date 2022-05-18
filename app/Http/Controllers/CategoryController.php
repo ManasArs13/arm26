@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Storage;
+
 
 use App\Category;
 use Illuminate\Http\Request;
+use App\Post;
 
 class CategoryController extends Controller
 {
@@ -42,13 +45,10 @@ class CategoryController extends Controller
         $category = new Category();
         $category->title = $request->input('title');
         $category->sort_id = $request->input('sort_id');
-        $category->img = $request->file('img');
-
-        $img = $request->file('img');
-        if ($img) {
-            $path = Storage::putFile('public', $img);
-            $category->img = Storage::url($path);
-        }
+        
+       
+        $category -> img = $request->file('img')->store('image', 'public');
+      
        
         $category->save();
 
@@ -63,7 +63,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $posts = Post::where('category_id', $id);
+        return redirect()->route('posts.index', ['posts'=>$posts])->with('status', 'Посты данной категории');
     }
 
     /**
@@ -74,7 +75,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::where('id', $id)->first();
+        return view('admin.categories.edit', ['category'=>$category]);
     }
 
     /**
@@ -86,7 +88,16 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category ->title = $request->input('title');
+        $category->sort_id = $request->input('sort_id');
+        
+       
+        $category -> img = $request->file('img')->store('image', 'public');
+      
+       
+        $category->update();
+        return redirect()->route('categories.index')->with('status', 'Категория обнавлена');
     }
 
     /**
@@ -98,6 +109,8 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::findOrFail($id);
+        $image = $category -> img;
+        Storage::delete($image);
         
         $category->delete();
         return redirect()->route('categories.index')->with('status', 'категория удалена');

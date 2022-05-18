@@ -46,7 +46,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-dump($request);
+
         $post = new Post();
         $post->name = $request->input('name');
         $post->description = $request->input('description');
@@ -94,7 +94,7 @@ dump($request);
      */
     public function update(Request $request, $id)
     {
-        dump($id);
+      
 
         $post = Post::findOrFail($id);
         $post->name = $request->input('name');

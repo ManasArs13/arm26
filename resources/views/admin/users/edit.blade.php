@@ -7,7 +7,7 @@
 
 <div class="card text-left">
   <div class="card-header">
-    <form action="{{ route('categories.update', ['id' => $category->id]) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('users.update', ['id' => $user->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
       <div class="col-md-6">
