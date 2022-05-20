@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use App\Post;
 
 class UserController extends Controller
 {
@@ -15,9 +16,9 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        dump($users);
+      
 
-        return view('admin.user', ['users' => $users]);
+        return view('admin.users.index', ['users' => $users]);
     }
 
     /**
@@ -49,7 +50,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $posts = Post::where('user_id', $id);
+        return redirect()->route('posts.index', ['posts'=>$posts])->with('status', 'Посты данного пользователя');
     }
 
     /**
@@ -60,7 +62,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        return view('admin.users.edit', ['user'=>$user]);
     }
 
     /**
@@ -72,7 +75,19 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        
+        
+        $user ->name = $request->input('name');
+        $user->email = $request->input('email');
+        
+       
+        $user->admin = $request->input('admin');
+      
+       
+        $user->update();
+        return redirect()->route('users.index')->with('status', 'Пользователь обнавлён');
     }
 
     /**
@@ -83,6 +98,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        if ($user->admin) {
+            return redirect()->route('users.index')->with('status', 'Администратор не может быть удалён');
+        }
     }
 }

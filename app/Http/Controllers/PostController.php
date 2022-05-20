@@ -21,7 +21,7 @@ class PostController extends Controller
         $posts = Post::where('visibility', 1)
         ->latest()
         ->get();
-          dump($posts);
+         
         return view('admin.posts.index', ['posts' => $posts]);
     }
 

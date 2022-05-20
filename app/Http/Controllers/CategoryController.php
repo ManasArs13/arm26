@@ -18,7 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        dump($categories);
+       
         
         return view('admin.categories.index', ['categories' => $categories]);
 
@@ -89,6 +89,9 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $category = Category::findOrFail($id);
+
+        Storage::delete($category -> img);
+        
         $category ->title = $request->input('title');
         $category->sort_id = $request->input('sort_id');
         
@@ -109,8 +112,11 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::findOrFail($id);
-        $image = $category -> img;
-        Storage::delete($image);
+        
+       
+   
+        Storage::delete($category -> img);
+       
         
         $category->delete();
         return redirect()->route('categories.index')->with('status', 'категория удалена');

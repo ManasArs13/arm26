@@ -18,7 +18,6 @@
     <div class="card-header">
       <form action="{{ route('users.destroy', ['id' => $user->id])}}" method="post">
 
-        <a href="{{ route('users.create')}}" class="btn btn-outline-primary" aria-current="page">Добавить категорию</a>
         <a href="{{ route('users.show', ['id' => $user->id])}}" class="btn btn-outline-primary" aria-current="page">Просмотр постов</a>
         <a href="{{ route('users.edit', ['id' => $user->id])}}" class="btn btn-outline-primary" aria-current="page">Редактировать</a>
       @csrf
@@ -27,12 +26,15 @@
       </form>
     </div>
     <div class="card-body">
-      <h5 class="card-title">{{ $user -> title }}</h5>
-      <p class="card-text">Порядок сортировки: {{ $user -> sort_id }}</p>
-            <div class="hstack gap-3">
-                 <img  src="/storage/{{ $user -> img }}" alt="fff">
-            </div>
+      <h5 class="card-title">Имя: {{ $user -> name }}</h5>
+      
+      <p class="card-text">email: {{ $user -> email }}</p>
+
+      
+      
+      <div class="ms-auto">Администратор: {{ $user -> admin }}</div>
       </div>
+      
   </div>
 
 

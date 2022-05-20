@@ -12,18 +12,18 @@
             @method('PATCH')
       <div class="col-md-6">
                 <h3>РЕДАКТИРОВАНИЕ ПОСТА</h3><br>
-                <label for="inputName" class="form-label">Название категории</label>
-                <input type="text" class="form-control" name="title" value="{{ $category->title }}">
+                <label for="inputName" class="form-label">Имя пользователя</label>
+                <input type="text" class="form-control" name="name" value="{{ $user->name }}">
       </div>
       <div class="col-12">
-                <label for="inputPhone" class="form-label">Порядок сортировки</label>
-                <input type="text" class="form-control" name="sort_id" value="{{ $category->sort_id }}" placeholder="000">
+                <label for="inputPhone" class="form-label">email</label>
+                <input type="text" class="form-control" name="email" value="{{ $user->email }}" placeholder="xxx@.xx">
       </div>
-      <div class="col-md-6"><br>
-        <label for="image">Картинка для категории</label>
-        <input type="file" class="form-control-file" name="img">
-      </div>
-              
+      <div class="col-12">
+        <label for="inputPhone" class="form-label">admin</label>
+        <input type="text" class="form-control" name="admin" value="{{ $user->admin }}" placeholder="xxx@.xx">
+</div>
+                  
               <br>
       <div class="col-12">
                 <button type="submit" class="btn btn-primary">Обновить</button>
