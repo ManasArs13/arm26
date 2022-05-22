@@ -63,8 +63,13 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $posts = Post::where('category_id', $id);
+        $posts = Post::where('category_id', $id)->get();
+      if (count($posts) !== 0) {
         return redirect()->route('posts.index', ['posts'=>$posts])->with('status', 'Посты данной категории');
+      } else {
+        $categories = Category::all();
+        return redirect()->route('categories.index', ['categories'=>$categories])->with('danger', 'В данной категории нет постов');
+      }
     }
 
     /**
@@ -113,12 +118,18 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         
+        $posts = Post::where('category_id', $id)->get();
        
-   
+   if (count($posts) !== 0) {
+    
+    return redirect()->route('posts.index', ['posts'=>$posts])->with('danger', 'Невозможно удалить. В категории есть посты');
+  
+   } else {
         Storage::delete($category -> img);
        
         
         $category->delete();
         return redirect()->route('categories.index')->with('status', 'категория удалена');
+   }
     }
 }

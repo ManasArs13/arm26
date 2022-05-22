@@ -8,8 +8,19 @@
 </div>
 @endif
 
+@if (session('danger'))
+<div class="alert alert-danger alert-dismissible mt-4" role="alert">
+   {{ session('danger') }}
+</div>
+@endif
 
 
+@if(count($categories) < 1)
+   <div class="alert alert-warning">
+        <strong>Категорий нет. Нажмите, чтобы создать </strong> 
+        <a href="{{ route('categories.create')}}" class="btn btn-outline-primary" aria-current="page">Добавить категорию</a>
+   </div>
+@endif
 @foreach ($categories as $category)
 
 

@@ -5,7 +5,7 @@
 
 @include('layouts.banner')
 
-
+@include('layouts.categories')
 
 
 

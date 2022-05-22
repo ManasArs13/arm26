@@ -100,7 +100,10 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         if ($user->admin) {
-            return redirect()->route('users.index')->with('status', 'Администратор не может быть удалён');
+            return redirect()->route('users.index')->with('danger', 'Администратор не может быть удалён');
+        } else {
+            $user->delete();
+            return redirect()->route('users.index')->with('status', 'Пользователь удалён');
         }
     }
 }

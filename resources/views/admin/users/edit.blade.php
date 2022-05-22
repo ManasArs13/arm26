@@ -20,11 +20,22 @@
                 <input type="text" class="form-control" name="email" value="{{ $user->email }}" placeholder="xxx@.xx">
       </div>
       <div class="col-12">
-        <label for="inputPhone" class="form-label">admin</label>
-        <input type="text" class="form-control" name="admin" value="{{ $user->admin }}" placeholder="xxx@.xx">
-</div>
-                  
-              <br>
+        <br>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="admin" id="exampleRadios1" value="1" checked>
+          <label class="form-check-label" for="exampleRadios1">
+            Администратор
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="admin" id="exampleRadios1" value="0" checked>
+          <label class="form-check-label" for="exampleRadios1">
+            Пользователь
+          </label>
+        </div>
+        </div>
+        <br>
+             
       <div class="col-12">
                 <button type="submit" class="btn btn-primary">Обновить</button>
       </div>

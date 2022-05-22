@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::redirect('/admin', '/admin/posts', 301);
 
 Route::resource('admin/posts', 'PostController');
@@ -26,4 +29,8 @@ Route::resource('admin/users', 'UserController');
 
 Auth::routes();
 
+
+
+/*
 Route::get('/home', 'HomeController@index')->name('home');
+*/

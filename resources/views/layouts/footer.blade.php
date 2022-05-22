@@ -1,4 +1,4 @@
-<div class="container-fluid fixed-bottom bg-dark text-white">
+<div class="container-fluid bg-dark text-white">
     <div class="row justify-content-center">
         
         <div class="col-3">

@@ -16,7 +16,8 @@
               </div>
               <div class="col-12">
                 <label for="inputDescription" class="form-label">Описание</label>
-                <textarea class="form-control" name="description" rows="3"></textarea>
+                <input type="text" class="form-control" name="description">
+                
               </div>
               <div class="col-12">
                 <label for="inputPhone" class="form-label">Номер телефона</label>

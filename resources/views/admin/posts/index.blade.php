@@ -9,10 +9,18 @@
 @endif
 
 
-<div class="alert alert-success alert-dismissible mt-4" role="alert">
-  <a href="{{ route('posts.create')}}" class="btn btn-outline-primary" aria-current="page">Добавить пост</a>
+@if (session('danger'))
+<div class="alert alert-danger alert-dismissible mt-4" role="alert">
+   {{ session('danger') }}
 </div>
+@endif
 
+@if(count($posts) < 1)
+   <div class="alert alert-warning">
+        <strong>Постов нет. Нажмите, чтобы создать </strong> 
+        <a href="{{ route('posts.create')}}" class="btn btn-outline-primary" aria-current="page">Добавить пост</a>
+   </div>
+@endif
 
 @foreach ($posts as $post)
 

@@ -8,7 +8,11 @@
 </div>
 @endif
 
-
+@if (session('danger'))
+<div class="alert alert-danger alert-dismissible mt-4" role="alert">
+   {{ session('danger') }}
+</div>
+@endif
 
 @foreach ($users as $user)
 
@@ -31,8 +35,10 @@
       <p class="card-text">email: {{ $user -> email }}</p>
 
       
-      
-      <div class="ms-auto">Администратор: {{ $user -> admin }}</div>
+      @if ($user -> admin == 1)
+      <span class="badge bg-warning text-dark">Администратор</span>
+      @endif
+     
       </div>
       
   </div>
