@@ -8,9 +8,9 @@
 
 
 
-    <link href="/sass/app.scss" rel="stylesheet" />
-    <link href="/css/app.css" rel="stylesheet" />
-    <link href="/css/style.css" rel="stylesheet" />
+    
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/all.css') }}" rel="stylesheet" />
     
 
 
