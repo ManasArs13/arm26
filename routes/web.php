@@ -13,7 +13,7 @@
 
 
 
-Route::get('/', function () {
+Route::get('/z', function () {
     return view('index');
 });
 

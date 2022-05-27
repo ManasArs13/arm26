@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -25,10 +26,12 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::orderBy('sort_id', 'asc')->get();
-        dump($categories);
+        $posts = Post::where('visibility', 1)
+        ->latest()
+        ->get();
 
         
-        return view('index', ['categories'=>$categories]);
+        return view('index', ['categories'=>$categories, 'posts'=>$posts]);
         
     }
 }

@@ -41,7 +41,7 @@
       <h5 class="card-title">{{ $category -> title }}</h5>
       <p class="card-text">Порядок сортировки: {{ $category -> sort_id }}</p>
             <div class="hstack gap-3">
-                 <img  src="{{ Storage::url($category -> img) }}" alt="fff">
+                 <img  src="{{ Storage::url($category -> img) }}" alt="изображение">
                 
             </div>
       </div>
