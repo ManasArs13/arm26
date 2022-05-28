@@ -57,7 +57,9 @@
     <div class="container">
         
     
-      <div id="app"><example-component></example-component></div>
+      <div id="app">s
+       @{{ message }}
+       z <example-component></example-component></div>
 
        <div class="row">
            <div class="col-3 border border-primary">
