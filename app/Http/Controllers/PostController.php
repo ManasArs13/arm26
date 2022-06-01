@@ -1,10 +1,11 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
-use App\Category;
+use App\Category; 
 use App\User;
 
 
@@ -24,6 +25,10 @@ class PostController extends Controller
          
         return view('admin.posts.index', ['posts' => $posts]);
     }
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
