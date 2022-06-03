@@ -2,12 +2,13 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">test</div>
+                <div v-for="post in posts" class="card">
+                    <div class="card-header">{{post.name}}</div>
 
                     <div class="card-body">
-                        I'm test.sss
+                        {{post.description}}
                     </div>
+                    <button v>ff</button>
                 </div>
             </div>
         </div>
@@ -19,15 +20,20 @@
         name: 'TestComponent',
         data() {
             return {
-                info: []
+                posts: []
             }
         },
-        
+        methods: {
+             
+        },
         mounted() {
             axios.get('http://arm26/api/b')
             .then(response => {
-            this.info = response.data
-            })
-        },
+            this.posts = response.data
+            });
+          
+        }
+         
+        
     }
 </script>

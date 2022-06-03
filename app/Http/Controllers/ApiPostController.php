@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+
 namespace App\Http\Controllers;
 
 
@@ -17,7 +17,8 @@ class ApiPostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return response()->json($posts);;
+        return response()->json($posts);
+       
     }
 
     /**
