@@ -58,8 +58,9 @@
         
     
       <div id="app">
-        <example-component></example-component>
-        <test-component></test-component>
+        
+        <index></index>
+
       </div>
 
        <div class="row">

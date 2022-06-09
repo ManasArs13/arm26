@@ -12,12 +12,15 @@
                 </div>
             </div>
         </div>
-    </div>
+   <example-component :posts="posts"></example-component>
+   </div>
 </template>
 
 <script>
+    
+    import ExampleComponent from './ExampleComponent.vue';
     export default {
-        name: 'TestComponent',
+       
         data() {
             return {
                 posts: []
@@ -32,7 +35,13 @@
             this.posts = response.data
             });
           
-        }
+        },
+        computed: {
+            
+        },
+        components: {
+            'example-component': ExampleComponent
+        }  
          
         
     }
