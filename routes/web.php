@@ -20,4 +20,4 @@ Auth::routes();
 */
 //Route::get('/m', 'API/PostController@index');
 //Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', 'AppController');
+Route::get('/{all?}', 'AppController');
