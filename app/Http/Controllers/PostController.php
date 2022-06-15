@@ -22,7 +22,8 @@ class PostController extends Controller
         $posts = Post::where('visibility', 1)
         ->latest()
         ->get();
-         
+  
+
         return view('admin.posts.index', ['posts' => $posts]);
     }
 
@@ -100,7 +101,7 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
       
-dd($query = $request->query('name'));
+
         $post = Post::findOrFail($id);
         $post->name = $request->input('name');
         $post->description = $request->input('description');

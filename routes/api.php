@@ -20,4 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-    Route::apiResource('b', 'ApiPostController');
+    Route::apiResource('post', 'ApiPostController');
+    Route::apiResource('category', 'ApiCategoryController');
+    Route::apiResource('user', 'ApiUserController');
+ 

@@ -27,17 +27,7 @@
 
 
 <div class="card text-centr">
-    <div class="card-header">
-      <form action="{{ route('posts.destroy', ['id' => $post->id]) }}" method="post">
-        <a href="{{ route('posts.create')}}" class="btn btn-outline-primary" aria-current="page">Добавить пост</a>
-        <a href="{{ route('posts.edit', ['id' => $post->id])}}" class="btn btn-outline-primary" aria-current="page">Редактировать</a>
-      @csrf
-      @method('DELETE')
-        <input type="submit" class="btn btn-danger" value="Удалить">
-      </form>
-     
-    </div>
-  
+
     
     <div class="card-body">
       <h5 class="card-title">{{ $post -> name }}</h5>

@@ -7,6 +7,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Category; 
+use App\User;
+
+
 class ApiPostController extends Controller
 {
     /**
@@ -16,10 +20,27 @@ class ApiPostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::where('visibility', 1)
+        ->latest()
+        ->get();
+
+        foreach ($posts as $post) {
+           
+            $user_id = $post->user_id;
+            $category_id = $post->category_id;
+            
+            $user = User::findOrFail($user_id);
+            $post->user_id = $user->name;
+
+            $category = Category::findOrFail($category_id);
+            $post->category_id = $category->title;
+
+        }
+
         return response()->json($posts);
        
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -28,8 +49,17 @@ class ApiPostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $post = new Post();
+        $post->name = $request->input('post.name');
+        $post->description = $request->input('post.description');
+        $post->category_id = $request->input('post.category_id');
+        $post->user_id = $request->input('post.user_id');
+        $post->phone_number = $request->input('post.phone_number');
+        $post->price = $request->input('post.price');
+        $post->save();
+        
+        return response()->json('Пост успешно создан');
     }
 
     /**
@@ -40,7 +70,9 @@ class ApiPostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::where('id', $id)->first();
+        
+        return response()->json($post);
     }
 
     /**
@@ -52,7 +84,16 @@ class ApiPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->name = $request->input('post.name');
+        $post->description = $request->input('post.description');
+        $post->category_id = $request->input('post.category_id');
+        $post->user_id = $request->input('post.user_id');
+        $post->phone_number = $request->input('post.phone_number');
+        $post->price = $request->input('post.price');
+        $post->update();
+
+        return response()->json('Пост успешно обнавлён');
     }
 
     /**
@@ -63,6 +104,9 @@ class ApiPostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        
+        $post->delete();
+        return response()->json('Пост успешно удалён');
     }
 }
