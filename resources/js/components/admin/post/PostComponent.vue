@@ -77,6 +77,7 @@
         axios.delete('http://arm26/api/post/' + id)
         .then(response => 
             this.getPosts())
+      this.succes = 'Этот пост успешно удалён'
       },
      getPosts () {
         axios.get('http://arm26/api/post')
@@ -86,7 +87,7 @@
      },
         ifPosts () {
               if(this.posts.length == 0) {
-                this.isPosts = true
+                this.isPosts = true;
               }
         }
       },
