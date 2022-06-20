@@ -97,7 +97,7 @@
         .then(response => {
           router.push({path: '/admin/post'})
         });
-        this.$emit('changeSucces', this.succes)
+        this.$emit('changeSuccesPost', this.succes)
 
 
       }

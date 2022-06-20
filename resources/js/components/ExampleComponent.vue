@@ -31,6 +31,3 @@
         
     }
 </script>
-<div v-if="succes" class="alert alert-success" role="alert">
- {{succes}}
-</div>

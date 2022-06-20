@@ -21,9 +21,6 @@
 <script>
     export default {
         name: 'HeaderComponent',
-        mounted() {
-            console.log('Component mounted.')
-        },
-        
+                
     }
 </script>

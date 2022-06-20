@@ -67,10 +67,11 @@
       return {
         posts: null,
         isPosts: false,
+        succes: null,
       }
     },
 
-   props: ['succes'],
+   props: ['succesPost'],
 
     methods: {
       deletePost(id) {
@@ -95,12 +96,18 @@
     
 
 
-    mounted() {
-        this.getPosts();
+    beforeMount() {
+        this.getPosts(),
+        this.succes = this.succesPost
     },
 
     updated() {
       this.ifPosts()
+    },
+
+    destroyed() {
+      
+      this.$emit('changeSuccesPost', null)
     },
 }
 

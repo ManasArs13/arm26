@@ -69,7 +69,7 @@
   export default {
     data() {
       return {
-        succes: 'Пост успешно создан',
+        succesPost: 'Пост успешно создан',
         users: [],
         categories: [],
         post: {
@@ -89,7 +89,7 @@
         .then(response => {
           router.push({path: '/admin/post'})
         });
-        this.$emit('changeSucces', this.succes)
+        this.$emit('changeSuccesPost', this.succesPost)
 
 
       }

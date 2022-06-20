@@ -1,46 +1,24 @@
 <template>
-     <div>
-          <header-component></header-component>
-          
-        
+    <div>
+        <header-component></header-component>
+           
+        <router-view></router-view>
 
-
-
-
-          <div class="container-fluid">
-               <div class="row">
-                    <navi-component></navi-component>
-                    <router-view @changeSucces='returnsucces' :succes="succes"></router-view>
-
-</div>
-          </div>
-     </div>
+    </div>
 </template>
 
 <script>
+    
+    import HeaderComponent from './layouts/HeaderComponent.vue'
 
-import HeaderComponent from './admin/HeaderComponent.vue'
-import NaviComponent from './admin/NaviComponent.vue'
 
-export default {
+    
 
-     
-     name: "AppComponent",
-     data() {
-            return {
-               succes: null 
-            }
+    export default {
+        name: "AppComponent",
+        components: {
+            'header-component': HeaderComponent
         },
 
-     methods: {
-          returnsucces (data) {
-          this.succes = data
-          }
-     },
-
-     components: {
-     'header-component': HeaderComponent,
-     'navi-component': NaviComponent
-     }
-}
+    }
 </script>

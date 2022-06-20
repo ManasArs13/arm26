@@ -4,6 +4,8 @@
 
 Auth::routes();
 
-Route::get('admin/{one?}/{two?}/{three?}/{four?}', 'AppController');
+Route::get('/{one?}/{two?}/{three?}/{four?}', 'AppController@index');
+
+Route::get('admin/{one?}/{two?}/{three?}/{four?}', 'AppController@admin');
 
 

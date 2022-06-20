@@ -17,8 +17,13 @@ class AppController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function __invoke()
+    public function admin()
     {
-      return view('app');
+      return view('admin/admin');
+    }
+
+    public function index()
+    {
+      return view('index');
     }
 }

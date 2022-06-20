@@ -3,12 +3,11 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Category; 
-use App\User;
+
 
 
 class ApiCategoryController extends Controller
@@ -34,7 +33,16 @@ class ApiCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+        $category->title = $request->input('category.title');
+        $category->sort_id = $request->input('category.sort_id');
+        
+       
+        
+       
+        $category->save();
+
+        return response()->json('Категория успешно создана');
     }
 
     /**
@@ -45,9 +53,16 @@ class ApiCategoryController extends Controller
      */
     public function show($id)
     {
-        //
-    }
 
+        
+        $posts = Post::where('category_id', $id)->get();
+        
+        if (count($posts) !== 0) {
+            return response()->json('Постов нет');
+        } else {
+        return response()->json($posts);
+        }
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -57,7 +72,16 @@ class ApiCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        
+        $category ->title = $request->input('category.title');
+        $category->sort_id = $request->input('category.sort_id');
+        
+       
+        $category->update();
+
+        return response()->json('Категория успешно обнавлена');
     }
 
     /**
@@ -68,6 +92,17 @@ class ApiCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        
+        $posts = Post::where('category_id', $id)->get();
+       
+            if (count($posts) !== 0) {
+                    return response()->json('Невозможно удалить. В категории есть посты');
+  
+            } else {
+                    
+                    $category->delete();
+                    return response()->json('Пост удалён');
+            }
     }
 }

@@ -2,14 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div v-for="post in posts" class="card">
-                    <div class="card-header">{{post.name}}</div>
-
-                    <div class="card-body">
-                        {{post.description}}
-                    </div>
-                    <button v>ff</button>
-                </div>
+                ggggg
             </div>
         </div>
    <example-component :posts="posts"></example-component>
@@ -20,7 +13,7 @@
     
     import ExampleComponent from './ExampleComponent.vue';
     export default {
-       
+       name: "TestComponent",
         data() {
             return {
                 posts: []
