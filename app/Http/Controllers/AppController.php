@@ -19,7 +19,7 @@ class AppController extends Controller
      */
     public function admin()
     {
-      return view('admin/admin');
+      return view('admin');
     }
 
     public function index()
