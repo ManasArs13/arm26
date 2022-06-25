@@ -41,7 +41,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    { dd($request);
         $category = new Category();
         $category->title = $request->input('title');
         $category->sort_id = $request->input('sort_id');
@@ -93,6 +93,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+       
         $category = Category::findOrFail($id);
 
         Storage::delete($category -> img);

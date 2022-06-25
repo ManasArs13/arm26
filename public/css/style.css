@@ -2,6 +2,13 @@ body {
    
 }
 
+
+h2 {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
 #banner_row {
     min-height: 60vh;
     background-image: url(../img/bg_banner.jpg);
@@ -16,8 +23,9 @@ body {
 
 }
 
-.footer {
-    background-color: #000000;
+footer {
+   
+    margin-top: 7rem;
 }
 
 
@@ -37,30 +45,7 @@ body {
     min-height: 50px;
 }
 
-#container_carousel {
-    display: flex;
-    flex-wrap: nowrap;
-    width: 90%;
-    margin: auto;
-}
-
-.content_card {
-    max-width: 30%;
-    max-height: 300px;
-
-}
-
-.card-img-top {
-
-    height: 300px;
-}
-
-.content_container {
-    position: absolute;
-    bottom: 10px;
-    height: 50px;
-    width: 90%;
-    left: 5%;
-    text-align: center;
-    padding-top: 3%;
+.category_img {
+    width: 10%;
+    margin-right: 20px;
 }

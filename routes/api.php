@@ -23,4 +23,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::apiResource('post', 'ApiPostController');
     Route::apiResource('category', 'ApiCategoryController');
     Route::apiResource('user', 'ApiUserController');
+//    Route::apiResource('image', 'ApiImageController');
  

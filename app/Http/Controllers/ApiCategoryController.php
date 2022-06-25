@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Category; 
@@ -32,18 +33,17 @@ class ApiCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $category = new Category();
-        $category->title = $request->input('category.title');
-        $category->sort_id = $request->input('category.sort_id');
+    { //return response()->json($request);
+   $category = new Category();
+        $category->title = $request->input('title');
+        $category->sort_id = $request->input('sort_id');
         
-       
+        $category -> img = $request->file('img')->store('categories', 'public');
         
        
         $category->save();
 
         return response()->json('Категория успешно создана');
-    }
 
     /**
      * Display the specified resource.
@@ -51,6 +51,8 @@ class ApiCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    }
     public function show($id)
     {
 
@@ -92,17 +94,6 @@ class ApiCategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
-        
-        $posts = Post::where('category_id', $id)->get();
        
-            if (count($posts) !== 0) {
-                    return response()->json('Невозможно удалить. В категории есть посты');
-  
-            } else {
-                    
-                    $category->delete();
-                    return response()->json('Пост удалён');
-            }
     }
 }

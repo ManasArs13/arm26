@@ -1,6 +1,6 @@
 <?php
 
-//Route::get('/one', 'PostController@index');
+//Route::resource('categories', 'CategoryController');
 
 Auth::routes();
 Route::get('admin/{one?}/{two?}/{three?}/{four?}', 'AppController@admin');
