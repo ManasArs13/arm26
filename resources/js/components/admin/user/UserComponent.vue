@@ -2,7 +2,7 @@
     
         
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <main class="col-md-9 ms-sm-auto col-lg-9 px-md-4 shadow">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Все пользователи</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
@@ -25,14 +25,14 @@
 
 
 
-<div v-for="user in users" class="card border-primary">
+<div v-for="user in users" class="card border-dark">
                     
   <h5 class="card-header">
     <div class="row g-0">
-    <div class="col-sm-6 col-md-8 mb-1">{{user.name}}</div>
-     <span v-if="user.admin == 1" class="badge bg-warning text-dark">Администратор</span>
+    <div class="col-sm-6 col-md-8 mb-1">{{user.name}}  <span v-if="user.admin == 1" class="badge bg-warning text-dark">Администратор</span></div>
+     
     </div>
-  </h5>
+     </h5>
   <div class="card-body">
    
     <p class="card-text">Email: {{user.email}}</p>

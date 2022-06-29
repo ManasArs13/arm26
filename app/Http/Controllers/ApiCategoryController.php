@@ -2,9 +2,9 @@
 
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
+
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Category; 
@@ -33,13 +33,14 @@ class ApiCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    { //return response()->json($request);
-   $category = new Category();
+    { 
+        $category = new Category();
         $category->title = $request->input('title');
         $category->sort_id = $request->input('sort_id');
         
+        if ($request->file('img') !== null) {
         $category -> img = $request->file('img')->store('categories', 'public');
-        
+        }
        
         $category->save();
 
@@ -73,17 +74,22 @@ class ApiCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $category = Category::findOrFail($id);
-
-        
-        $category ->title = $request->input('category.title');
-        $category->sort_id = $request->input('category.sort_id');
-        
+    {return response()->json($request);
+      /*  $category = Category::findOrFail($id);
        
+        if ($category -> img !== '') {
+        Storage::delete($category -> img);
+        } 
+
+        $category ->title = $request->input('title');
+        $category->sort_id = $request->input('sort_id');
+        
+        if ($request->file('img') !== null) {
+        $category -> img = $request->file('img')->store('categories', 'public');
+        }
         $category->update();
 
-        return response()->json('Категория успешно обнавлена');
+        return response()->json('Категория успешно обнавлена');*/
     }
 
     /**
@@ -94,6 +100,21 @@ class ApiCategoryController extends Controller
      */
     public function destroy($id)
     {
+        $category = Category::findOrFail($id);
+        
+        $posts = Post::where('category_id', $id)->get();
        
+   if (count($posts) !== 0) {
+    
+    return response()->json('Невозможно удалить. В категории есть посты');
+    
+   } else {
+            if ($category -> img !== null) {
+            Storage::delete($category -> img);
+            } 
+        
+        $category->delete();
+        return response()->json('Категория удалена');
+   }
     }
 }

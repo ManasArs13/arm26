@@ -2,7 +2,8 @@
     <div>
         <header-component></header-component>
            
-        <router-view></router-view>
+        <banner-component></banner-component>
+        <content-component></content-component>
 
 
         <footer-component></footer-component>
@@ -15,7 +16,8 @@
 
     import HeaderComponent from './layouts/HeaderComponent.vue'
     import FooterComponentVue from './layouts/FooterComponent.vue'
-
+    import BannerComponent from './layouts/BannerComponent.vue'
+    import ContentComponent from './layouts/ContentComponent.vue'
 
 
     
@@ -25,6 +27,8 @@
         components: {
             'header-component': HeaderComponent,
             'footer-component': FooterComponentVue,
+            'banner-component': BannerComponent,
+            'content-component': ContentComponent,
         },
 
     }

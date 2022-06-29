@@ -2,7 +2,7 @@
     
         
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <main class="col-md-9 ms-sm-auto col-lg-9 px-md-4 shadow">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Все категории</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
@@ -35,7 +35,7 @@
 </div>
 
 
-<div v-for="category in categories" class="card border-primary">
+<div v-for="category in categories" class="card border-dark">
                     
   <h5 class="card-header">
     <div class="row g-0">
@@ -45,7 +45,7 @@
   </h5>
   <div class="card-body">
    
-    <p class="card-text">Порядок сортировки: {{category.id}}</p>
+    <img :src="'../storage/' +category.img" class="category_img">
      <router-link  style="text-decoration: none" :to="{ name: 'admin.category.edit', params: { id: category.id} }">
             <a href="#" class="btn btn-outline-primary">редактировать</a>
         </router-link>
@@ -83,7 +83,7 @@
       deleteCategory(id) {
             axios.get('http://arm26/api/category/' + id)
             .then(response => {
-              if (response.data == 'Постов нет') {
+              if (response.data == 'Невозможно удалить. В категории есть посты') {
                 this.danger = 'Невозможно удалить. В категории есть посты';
                 this.succesDelete = null;
                 this.succes = null;

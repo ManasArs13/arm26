@@ -2,7 +2,7 @@
     
         
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <main class="col-md-9 ms-sm-auto col-lg-9 px-md-4 shadow">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Создание категории</h1>
         
@@ -33,7 +33,13 @@
 </div>
 
       
-  <button class="btn btn-primary">создать</button>
+
+
+<div class="row mb-3 justify-content-center">
+  <div class="col-md-4">
+  <button class="btn btn-success btn-lg w-50">создать</button>
+  </div>
+</div>
 </form>
 
 
@@ -68,7 +74,7 @@
             },
       store(e) {
          e.preventDefault();
- //               let existingObj = this;
+ 
                 const config = {
                     headers: {
                         'content-type': 'multipart/form-data'
@@ -78,16 +84,7 @@
                data.append('title', this.category.title);
                data.append('sort_id', this.category.sort_id);
                 data.append('img', this.img);
-        /*        category.append('title', this.category.title);
-                category.append('sort_id', this.category.sort_id);*/
-               // console.log(this.category.img)
-    /*       const data = new FormData();
-data.append('img', this.category.img);
-const json = JSON.stringify({
-    title: this.title,
-    sort_id: this.sort_id,
-});*/ 
- //        axios.post('http://arm26/api/category', category)
+
      axios.post('http://arm26/api/category',  data, config)
         .then(response => {
           router.push({path: '/admin/category'})

@@ -1,11 +1,16 @@
 <?php
 
-//Route::resource('categories', 'CategoryController');
+
 
 Auth::routes();
-Route::get('admin/{one?}/{two?}/{three?}/{four?}', 'AppController@admin');
-Route::get('/{one?}/{two?}/{three?}/{four?}', 'AppController@index');
+Route::get('admin/{one?}/{two?}/{three?}/{four?}', 'HomeController@admin')->middleware('auth');
 
+
+Route::get('/', 'HomeController@home');
+Route::get('/logout', 'HomeController@logout')->name('logout');
+Route::view('/about', 'about');
+Route::get('/category/{id?}', 'HomeController@category')->name('category');
+Route::resource('/mypage', 'HomeController')->middleware('auth');
 
 
 

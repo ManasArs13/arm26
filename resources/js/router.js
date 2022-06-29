@@ -61,12 +61,6 @@ export default new VueRouter({
         component: () => import('./components/admin/user/UserEditComponent.vue'),
 
         },
-        {
-            path: '/',
-            name: 'home',
-            component: () => import('./components/layouts/HomeComponent.vue'),
-    
-        },
-    ]
+     ]
     
 })
