@@ -1,16 +1,13 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Middleware\IsAdmin;
 
-Route::get('/', function () {
-    return view('index');
-});
+Auth::routes();
+Route::get('admin/{one?}/{two?}/{three?}/{four?}', 'HomeController@admin')->middleware(IsAdmin::class);
+
+
+Route::get('/', 'HomeController@home');
+Route::get('/logout', 'HomeController@logout')->name('logout');
+Route::view('/about', 'about');
+Route::get('/category/{id?}', 'HomeController@category')->name('category');
+Route::resource('/mypage', 'HomeController')->middleware('auth');

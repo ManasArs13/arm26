@@ -1,0 +1,63 @@
+body {
+    font-size: 1.3rem;
+    
+}
+
+.body {
+    
+    min-height: 60vh;
+}
+
+
+header {
+    font-size: 1.3rem;
+}
+
+h2 {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+#banner_row {
+    min-height: 60vh;
+    background-image: url(../img/bg_banner.jpg);
+}
+
+#banner_h1 {
+    font-size: 70px;
+
+    text-shadow: 2px 2px 5px #000000;
+    font-weight: 900;
+   
+
+}
+
+footer {
+   
+    margin-top: 7rem;
+}
+
+
+.card {
+    margin: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+#banner_button {
+    
+    right: 4px;
+    top: 2px;
+    height: 45px;
+}
+
+#banner_input {
+    min-height: 50px;
+}
+
+.category_img {
+    width: 10%;
+    margin-right: 20px;
+}
