@@ -36,7 +36,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link link-dark" href="http://arm26/about">О проекте</a>
+                        <a class="nav-link link-dark" href="http://arm26/">О проекте</a>
                     </li>
 
                 </ul>
@@ -90,7 +90,7 @@
       
           <ul class="nav col-md-4 justify-content-end">
 
-            <li class="nav-item"><a href="http://arm26/about" class="nav-link px-2 text-muted">О проекте</a></li>
+            <li class="nav-item"><a href="http://arm26/" class="nav-link px-2 text-muted">О проекте</a></li>
             <li class="nav-item"><a href="http://arm26/admin" class="nav-link px-2 text-muted">Настройки</a></li>
           </ul>
         </footer>
