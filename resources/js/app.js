@@ -10,7 +10,7 @@ import router from './router';
 
 
 
-import AdminComponent from './components/admin/AdminComponent.vue';
+import AdminComponent from './components/AdminComponent.vue';
 
 
 
@@ -26,5 +26,6 @@ const app = new Vue({
 
     
 });
+
 
 

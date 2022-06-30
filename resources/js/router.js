@@ -11,54 +11,61 @@ export default new VueRouter({
 
     routes: [
         {
+            path: '/admin',
+            name: 'admin.info',
+            component: () => import('./components/Info/InfoComponent.vue'),
+            
+
+        },
+        {
             path: '/admin/post',
             name: 'admin.post',
-            component: () => import('./components/admin/post/PostComponent.vue'),
+            component: () => import('./components/post/PostComponent.vue'),
             props: true,
 
         },
         {
             path: '/admin/post/create',
             name: 'admin.post.create',
-            component: () => import('./components/admin/post/PostCreateComponent.vue'),
+            component: () => import('./components/post/PostCreateComponent.vue'),
 
         },
         {
             path: '/admin/post/:id/edit',
             name: 'admin.post.edit',
-            component: () => import('./components/admin/post/PostEditComponent.vue'),
+            component: () => import('./components/post/PostEditComponent.vue'),
 
         },
         {
             path: '/admin/category',
             name: 'admin.category',
-            component: () => import('./components/admin/category/CategoryComponent.vue'),
+            component: () => import('./components/category/CategoryComponent.vue'),
             props: true,
 
         },
         {
             path: '/admin/category/create',
             name: 'admin.category.create',
-            component: () => import('./components/admin/category/CategoryCreateComponent.vue'),
+            component: () => import('./components/category/CategoryCreateComponent.vue'),
 
         },
         {
             path: '/admin/category/:id/edit',
             name: 'admin.category.edit',
-            component: () => import('./components/admin/category/CategoryEditComponent.vue'),
+            component: () => import('./components/category/CategoryEditComponent.vue'),
 
        },
        {
         path: '/admin/user',
         name: 'admin.user',
-        component: () => import('./components/admin/user/UserComponent.vue'),
+        component: () => import('./components/user/UserComponent.vue'),
         props: true,
 
         },
         {
         path: '/admin/user/:id/edit',
         name: 'admin.user.edit',
-        component: () => import('./components/admin/user/UserEditComponent.vue'),
+        component: () => import('./components/user/UserEditComponent.vue'),
 
         },
      ]

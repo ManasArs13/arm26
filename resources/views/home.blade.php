@@ -7,7 +7,7 @@
 
             <div class="col-4">
                 <form class="position-relative rounded-pill">
-                    <input class="form-control me-2 rounded-pill" id='banner_input' type="search" placeholder="Поиск по сайту"
+                    <input class="form-control me-2 rounded-pill" id='banner_input' type="search" placeholder="Поиск по категориям"
                         aria-label="Search">
                     <button class="btn btn-warning rounded-circle position-absolute" id='banner_button' type="submit"><svg
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

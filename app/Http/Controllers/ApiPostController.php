@@ -75,6 +75,14 @@ class ApiPostController extends Controller
         return response()->json($post);
     }
 
+
+    public function search(Request $request)
+    { 
+        $posts = Post::where('name', $request->keywords)->get();
+
+            return response()->json($posts);
+    }
+
     /**
      * Update the specified resource in storage.
      *

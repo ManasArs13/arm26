@@ -74,8 +74,8 @@ class ApiCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {return response()->json($request);
-      /*  $category = Category::findOrFail($id);
+    {
+        $category = Category::findOrFail($id);
        
         if ($category -> img !== '') {
         Storage::delete($category -> img);
@@ -89,7 +89,7 @@ class ApiCategoryController extends Controller
         }
         $category->update();
 
-        return response()->json('Категория успешно обнавлена');*/
+        return response()->json('Категория успешно обнавлена');
     }
 
     /**
