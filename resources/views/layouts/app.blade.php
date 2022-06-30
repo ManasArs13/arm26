@@ -36,7 +36,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link link-dark" href="http://arm26/">О проекте</a>
+                        <a class="nav-link link-dark" href="http://arm26/about">О проекте</a>
                     </li>
 
                 </ul>
@@ -53,7 +53,7 @@
                     @else
 
                     <div class="dropdown text-end">
-                      <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                      <button class="btn btn-outline-dark" type="button" data-bs-toggle="dropdown"
                           id="dropdownMenuButton1" aria-expanded="false">ВХОД / РЕГИСТРАЦИЯ</button>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                        
@@ -91,7 +91,7 @@
           <ul class="nav col-md-4 justify-content-end">
 
             <li class="nav-item"><a href="http://arm26/" class="nav-link px-2 text-muted">О проекте</a></li>
-            <li class="nav-item"><a href="http://arm26/admin" class="nav-link px-2 text-muted">Настройки</a></li>
+            <li class="nav-item"><a href="http://arm26/admin/about" class="nav-link px-2 text-muted">Настройки</a></li>
           </ul>
         </footer>
       </div>

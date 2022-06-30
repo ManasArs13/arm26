@@ -3,6 +3,8 @@
 @section('content')
 
 
-dfeefef
+<div class="container">
+    <h2>Проект армянской общины</h2>
+    
 
 @endsection
