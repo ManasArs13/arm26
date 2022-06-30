@@ -13,8 +13,7 @@
         aria-label="inputSearch">
 
       <ul class="dropdown-menu dropdown-menu-dark w-50 d-block" v-if="posts.length > 0" aria-labelledby="inputSearch">
-        <router-link v-for="post in posts" style="text-decoration: none"
-          :to="{ name: 'admin.post.edit', params: { id: post.id } }">
+        <router-link v-for="post in posts" style="text-decoration: none" :to="{ name: 'admin.post.edit', params: { id: post.id } }">
           <li><a v-on:click="keywords = null" class="dropdown-item" href="#">{{ post.name }}</a></li>
         </router-link>
       </ul>
